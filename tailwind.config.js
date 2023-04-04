@@ -27,9 +27,10 @@ module.exports = {
                 'heading': ['Play'],
                 sans: ['Roboto'],
             },
+
             colors: {
-                'main-500': '#ff3273',
-            }
+                redMain: "#FF3273",
+            },
         },
     },
 
