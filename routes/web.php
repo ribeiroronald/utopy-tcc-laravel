@@ -53,9 +53,8 @@ Route::middleware([
     )->name('app.catalogo.jogo');
     
     
-    /** 
+    /* 
     * ROUTE ILHAS
-    */
     Route::get(
         '/ilhas', 
         [HomeController::class, 'index']  
@@ -64,7 +63,7 @@ Route::middleware([
         '/ilhas/{:name}', 
         [HomeController::class, 'index']  
     )->name('app.ilha');
-    
+    */
     
     /** 
     * ROUTE DESTAQUES
@@ -92,18 +91,18 @@ Route::middleware([
     )->name('app.donation');
 
 
-    /**
+    /*
     * ROUTES NOTICIAIS
-    */
     Route::get(
         '/news', 
         [HomeController::class, 'index']  
-    )->name('app.news');
-
-    Route::get(
-        '/news/{:id}', 
-        [HomeController::class, 'index']  
-    )->name('app.new');
+        )->name('app.news');
+        
+        Route::get(
+            '/news/{:id}', 
+            [HomeController::class, 'index']  
+            )->name('app.new');
+    */
 });
 
 
