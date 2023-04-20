@@ -14,14 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('donations', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
             $table->timestamps();
             $table->bigInteger('game_id')->unsigned();
             $table
                 ->foreign('game_id')
                 ->references('id')
-                ->on('developers')
+                ->on('games')
                 ->onDelete('cascade');
+
+            //------- Comuns
+            $table->text('message')->nulable();
         });
     }
 

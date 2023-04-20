@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
+        // TODO: CRIAR MIGRATION
         Schema::create('card_lists', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
             $table->timestamps();
+
+
+
+            //------- Comuns
+            $table->json('games');
         });
     }
 

@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('genre_games', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
             $table->timestamps();
+
+            //------- Comuns
+            $table->string('name', 100);
         });
     }
 

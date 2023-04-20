@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('developers', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
+
+
+            //------- Comuns
             $table->char('cpf', 13)->unique()->default('text');
             $table->json('followers')->nullable();
             $table->timestamps();

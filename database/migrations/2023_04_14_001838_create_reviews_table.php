@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table
@@ -27,6 +28,9 @@ return new class extends Migration
                 ->references('id')
                 ->on('games')
                 ->onDelete('cascade');
+
+
+            //------- Comuns
             $table->text('message');
             $table->timestamps();
         });

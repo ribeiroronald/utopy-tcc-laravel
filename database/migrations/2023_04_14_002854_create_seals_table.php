@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('seals', function (Blueprint $table) {
+            //------- PK & FK
             $table->id();
+
+
+            //------- Comuns
             $table->string('title', 150);
             $table->integer('level')->unsigned()->nullable()->default(0);
             $table->timestamps();
