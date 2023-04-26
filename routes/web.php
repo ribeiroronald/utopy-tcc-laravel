@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\Admin\HomeController as AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-
 });
+
+
+// ************ Admin Routes
+Route::get(
+    '/admin',
+    [AdminController::class, 'index']
+)->name('admin');
+
