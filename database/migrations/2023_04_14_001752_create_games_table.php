@@ -16,42 +16,41 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             //------- PK & FK
             $table->id();
-            $table->bigInteger('developer_id');
+            $table->unsignedBigInteger('developer_id');
             $table
-                ->foreign('developers_id')
+                ->foreign('developer_id')
                 ->references('id')
                 ->on('developers')
                 ->onDelete('cascade');
 
-            $table->bigInteger('genre_game_id');
+            $table->unsignedBigInteger('genre_game_id');
             $table
                 ->foreign('genre_game_id')
                 ->references('id')
-                ->on('genre_game')
+                ->on('genre_games')
                 ->onDelete('cascade');
 
-            $table->bigInteger('requeriment_minimum_id')->unsigned();
+            $table->unsignedBigInteger('requeriment_minimum_id');
             $table
                 ->foreign('requeriment_minimum_id')
                 ->references('id')
-                ->on('requeriment_minimum')
+                ->on('requeriments_minimum')
                 ->onDelete('cascade');
 
-            $table->bigInteger('requeriment_recommended_id');
+            $table->unsignedBigInteger('requeriment_recommended_id');
             $table
                 ->foreign('requeriment_recommended_id')
                 ->references('id')
-                ->on('requeriment_recommended')
+                ->on('requeriments_recommended')
                 ->onDelete('cascade');
 
 
             //------- Comuns
             $table->string('platform', 50);
-            $table->bigInteger('genre_game_id');
             $table->string('title');
             $table->string('thumbnail', 100);
             $table->double('price', 5, 2);
-            $table->date('release_date')->nullable()->default(new DateTime());
+            $table->date('release_date');
             $table->string('age_rating', 3);
             $table->boolean('status_game')->default(true);
             $table->timestamps();

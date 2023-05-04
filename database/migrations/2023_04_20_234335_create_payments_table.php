@@ -33,7 +33,6 @@ return new class extends Migration
             $table->string('currency');
             $table->decimal('amount', 12, 4)->default(0);
             $table->string('payment_method');
-            $table->timestamps();
             $table->string('status_payment')->nullable();
             $table->timestamps();
         });
