@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
+use App\Http\Controllers\Controller;
 use App\Models\GenreGame;
 use App\Http\Requests\StoreGenreGameRequest;
 use App\Http\Requests\UpdateGenreGameRequest;
@@ -15,7 +16,9 @@ class GenreGameController extends Controller
      */
     public function index()
     {
-        //
+        $categoriaGame = GenreGame::all();
+
+        return view('admin.games.genre_game', $categoriaGame);
     }
 
     /**
@@ -25,7 +28,7 @@ class GenreGameController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.games.form_genre_game');
     }
 
     /**
@@ -36,7 +39,11 @@ class GenreGameController extends Controller
      */
     public function store(StoreGenreGameRequest $request)
     {
-        //
+        $categoria = new GenreGame();
+        $categoria->name = $request->nome;
+        $categoria->save();
+
+        return redirect('admin.games.genre_game');
     }
 
     /**

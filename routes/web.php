@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\Admin\HomeController as AdminController;
+
+use App\Http\Controllers\Admin\HomeController as AdminController;
+use App\Http\Controllers\Game\GenreGameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,15 @@ Route::get(
     [AdminController::class, 'index']
 )->name('admin');
 
+Route::get(
+    '/admin/genre-game',
+    [GenreGameController::class, 'index']
+)->name('game.genre.index');
+Route::get(
+    '/admin/genre-game/create',
+    [GenreGameController::class, 'create']
+)->name('game.genre.create');
+Route::post(
+    '/admin/genre-game/store',
+    [GenreGameController::class, 'store']
+)->name('game.genre.store');

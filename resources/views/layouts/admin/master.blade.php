@@ -1,0 +1,3 @@
+@yield('title')
+
+@yield('content')
